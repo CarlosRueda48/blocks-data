@@ -1,177 +1,177 @@
 [
     {
         "name": "id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "REQUIRED"
     },
     {
         "name": "location_id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "staging_location_id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "canvasser_id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "REQUIRED"
     },
     {
         "name": "shift_type",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "shift_start",
-        "field_type": "TIMESTAMP",
+        "type": "TIMESTAMP",
         "mode": "NULLABLE"
     },
     {
         "name": "shift_end",
-        "field_type": "TIMESTAMP",
+        "type": "TIMESTAMP",
         "mode": "NULLABLE"
     },
     {
         "name": "created_by_user_id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "created_at",
-        "field_type": "STRING",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "updated_at",
-        "field_type": "STRING",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "status",
-        "field_type": "STRING",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "incomplete_vr_forms_count",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "registration_forms_count",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "petition_pages_count",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "signatures_count",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "soft_count_cards_total_collected",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "soft_count_cards_complete_collected",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "soft_count_cards_incomplete_collected",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "soft_count_cards_with_incorrect_date_collected",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "soft_count_cards_with_phone_collected",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "soft_count_cards_with_email_collected",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "extras",
-        "field_type": "STRING",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "campaign_id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "incomplete_abr_forms_count",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "absentee_ballot_request_forms_count",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "locked_by_user_id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "locked_at",
-        "field_type": "STRING",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "field_start",
-        "field_type": "TIMESTAMP",
+        "type": "TIMESTAMP",
         "mode": "NULLABLE"
     },
     {
         "name": "field_end",
-        "field_type": "TIMESTAMP",
+        "type": "TIMESTAMP",
         "mode": "NULLABLE"
     },
     {
         "name": "soft_count_pre_registration_cards_collected",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "ready_for_phone_verification_at",
-        "field_type": "STRING",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "ready_for_delivery_at",
-        "field_type": "STRING",
+        "type": "STRING",
         "mode": "NULLABLE"
     },
     {
         "name": "visual_qc_completed_by_user_id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "phone_verification_completed_by_user_id",
-        "field_type": "INTEGER",
+        "type": "INTEGER",
         "mode": "NULLABLE"
     },
     {
         "name": "qc_external",
-        "field_type": "STRING",
+        "type": "STRING",
         "mode": "NULLABLE"
     }
 ]
