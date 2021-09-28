@@ -5,7 +5,7 @@ from google.cloud import storage
 import json
 import datetime
 import csv
-
+import time
 import configparser
 
 
@@ -107,17 +107,22 @@ def storage_csv_to_bigquery(table_name):
 
 
 def blocks_to_bigquery(table_name):
+    start = time.time()
     postgresql_table_to_csv(table_name)
     upload_csv_to_gcp_storage(table_name)
     storage_csv_to_bigquery(table_name)
-
+    end = time.time()
+    print("Data processed for ", table_name, " table in", (end - start), " seconds.")
 
 def main():
+    start = time.time()
     blocks_to_bigquery("SHIFTS")
     blocks_to_bigquery("HARD_REPORT")
     blocks_to_bigquery("CANVASSERS")
     blocks_to_bigquery("REGISTRATION_FORMS")
     #blocks_to_bigquery("LOCATIONS")
+    end = time.time()
+    print("Total processing time: ", (end - start), " seconds.")
 
 config = configparser.ConfigParser()
 config.read('config.ini')
