@@ -69,6 +69,7 @@ def upload_csv_to_gcp_storage(table_name):
 
     # Upload shifts csv to Google Cloud Storage
     blob = bucket.blob(path)
+    blob.chunk_size = 1024*1024*10
     blob.upload_from_filename(path)
 
     print("Uploaded csv to GCP Storage path: ",
@@ -115,7 +116,7 @@ def main():
     blocks_to_bigquery("SHIFTS")
     blocks_to_bigquery("HARD_REPORT")
     blocks_to_bigquery("CANVASSERS")
-    #blocks_to_bigquery("REGISTRATION_FORMS")
+    blocks_to_bigquery("REGISTRATION_FORMS")
     #blocks_to_bigquery("LOCATIONS")
 
 config = configparser.ConfigParser()
