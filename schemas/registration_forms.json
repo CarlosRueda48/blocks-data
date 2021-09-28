@@ -1,0 +1,252 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "shift_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "created_by_user_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "form_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "first_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "middle_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "last_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name_suffix",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_street_address_one",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_street_address_two",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_zipcode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mailing_street_address_one",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mailing_street_address_two",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mailing_city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mailing_zipcode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "county",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "precinct",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "gender",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "date_of_birth",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "identification",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phone_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "email_address",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "us_citizen",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "eligible_voting_age",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "signature",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "extras",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "created_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updated_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "contacted_voter",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "score",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "delivery_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "attempted",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "party",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name_prefix",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ethnicity",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "latitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "longitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "distance_from_location",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "completed",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "uuid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "van_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ovr_status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "online_registration",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "secondary_identification",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "metadata",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "person_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "smarty_streets_match_data",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "twilio_match_data",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]
