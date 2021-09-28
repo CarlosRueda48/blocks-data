@@ -1,0 +1,77 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "first_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "last_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phone_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "notes",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "turf_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "created_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updated_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "created_by_user_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "organization_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "address",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "county",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "email",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "person_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "slug",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]
