@@ -47,14 +47,14 @@ def postgresql_table_to_csv(table_name):
                                sslkey=config['DEFAULT']['sslkey_path'],
                                sslcert=config['DEFAULT']['sslcert_path']
                                )
-
+    pqlconn.set_client_encoding('UTF8')
     cursor = pqlconn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     fd = open(config[table_name]["query_file"], 'r')
     sqlQuery = fd.read()
     fd.close()
     t_path_n_file = config[table_name]['create_csv_path']
     query = "copy  (" + sqlQuery + ") TO STDOUT WITH (FORMAT csv, DELIMITER ',', HEADER)"
-    with open(t_path_n_file, 'w') as f_output:
+    with open(t_path_n_file, 'w', encoding='utf-8') as f_output:
 
         cursor.copy_expert(query, f_output)
     print("Saved information to csv: ", t_path_n_file)
@@ -104,15 +104,17 @@ def storage_csv_to_bigquery(table_name):
     print("Loaded {} rows into table: {}.".format(
         destination_table.num_rows, config[table_name]['table_id']))
 
+
 def blocks_to_bigquery(table_name):
     postgresql_table_to_csv(table_name)
     upload_csv_to_gcp_storage(table_name)
     storage_csv_to_bigquery(table_name)
 
-def main():
 
+def main():
     blocks_to_bigquery("SHIFTS")
     blocks_to_bigquery("HARD_REPORT")
+    blocks_to_bigquery("CANVASSERS")
     #blocks_to_bigquery("REGISTRATION_FORMS")
     #blocks_to_bigquery("LOCATIONS")
 
