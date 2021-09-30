@@ -1,0 +1,77 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "parent_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "lft",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "rgt",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "depth",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "turf_level_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "created_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "updated_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "van_api_config",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "extras",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "slug",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phone_verification_language",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "default_phone_verification_script_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "qc_turnaround_days",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    }
+]

@@ -1,0 +1,18 @@
+SELECT
+    id
+    name
+    parent_id
+    lft
+    rgt
+    depth
+    turf_level_id
+    created_at
+    updated_at
+    van_api_config
+    extras
+    slug
+    phone_verification_language
+    default_phone_verification_script_id
+    qc_turnaround_days
+FROM
+    onearizona.turfs
