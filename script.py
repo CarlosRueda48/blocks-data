@@ -48,12 +48,15 @@ def postgresql_table_to_csv(table_name):
                                sslcert=config['DEFAULT']['sslcert_path']
                                )
     pqlconn.set_client_encoding('UTF8')
+
     cursor = pqlconn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
     fd = open(config[table_name]["query_file"], 'r')
-    sqlQuery = fd.read()
+    sql_query = fd.read()
+
     fd.close()
     t_path_n_file = config[table_name]['create_csv_path']
-    query = "copy  (" + sqlQuery + ") TO STDOUT WITH (FORMAT csv, DELIMITER ',', HEADER)"
+    query = "copy  (" + sql_query + ") TO STDOUT WITH (FORMAT csv, DELIMITER ',', HEADER)"
     with open(t_path_n_file, 'w', encoding='utf-8') as f_output:
 
         cursor.copy_expert(query, f_output)
@@ -120,6 +123,8 @@ def main():
     blocks_to_bigquery("HARD_REPORT")
     blocks_to_bigquery("CANVASSERS")
     blocks_to_bigquery("REGISTRATION_FORMS")
+    blocks_to_bigquery("TURFS")
+    blocks_to_bigquery("")
     #blocks_to_bigquery("LOCATIONS")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
