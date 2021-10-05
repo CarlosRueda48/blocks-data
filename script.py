@@ -75,8 +75,7 @@ def upload_csv_to_gcp_storage(table_name):
     blob.chunk_size = 1024*1024*10
     blob.upload_from_filename(path)
 
-    print("Uploaded csv to GCP Storage path: ",
-          config[table_name]['cloud_storage_csv_path'])
+    print("Uploaded csv to GCP Storage path: ", config[table_name]['cloud_storage_csv_path'])
 
 def storage_csv_to_bigquery(table_name):
     # Construct a BigQuery client object.
