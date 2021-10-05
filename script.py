@@ -123,7 +123,6 @@ def main():
     blocks_to_bigquery("CANVASSERS")
     blocks_to_bigquery("REGISTRATION_FORMS")
     blocks_to_bigquery("TURFS")
-    blocks_to_bigquery("")
     #blocks_to_bigquery("LOCATIONS")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
