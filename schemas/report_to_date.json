@@ -1,0 +1,112 @@
+[
+    {
+        "name": "id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "shift_start",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "shift_end",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "field_start",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "field_end",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "soft_count_cards_total_collected",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "soft_count_cards_complete_collected",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "soft_count_cards_incomplete_collected",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "location_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "street_address",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "county",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "latitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "longitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "location_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "canvasser_first_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "canvasser_last_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "canvasser_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "turf_office_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "turf_offfice_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "turf_parent_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "turf_level_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]
