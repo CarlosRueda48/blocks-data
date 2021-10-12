@@ -118,11 +118,12 @@ def blocks_to_bigquery(table_name):
 
 def main():
     start = time.time()
-    #blocks_to_bigquery("SHIFTS")
-    #blocks_to_bigquery("HARD_REPORT")
-    #blocks_to_bigquery("CANVASSERS")
-    #blocks_to_bigquery("REGISTRATION_FORMS")
+    blocks_to_bigquery("SHIFTS")
+    blocks_to_bigquery("HARD_REPORT")
+    blocks_to_bigquery("CANVASSERS")
+    blocks_to_bigquery("REGISTRATION_FORMS")
     blocks_to_bigquery("TURFS")
+    blocks_to_bigquery("REPORT_TO_DATE")
     #blocks_to_bigquery("LOCATIONS")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
