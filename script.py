@@ -20,22 +20,6 @@ def bigquery_schema_from_json(json_path):
                 name=field["name"], field_type=field["type"], mode=field["mode"]))
     return schema
 
-def csv_remove_line_breaks(path):
-    csv_split = []
-
-    with open(path, 'r') as csv_file:
-        for line in csv_file:
-            whitespace_split = line.split(" ")
-            remove_returns = (line.replace('\n', "") for line in whitespace_split)
-            csv_split.append(remove_returns)
-
-    with open(path, 'w+', newline='') as csvfile:
-        writer = csv.writer(csvfile, delimiter=',',
-                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        writer.writerows(csv_split)
-    
-    return csv_split
-
 
 def postgresql_table_to_csv(table_name):
     pqlconn = psycopg2.connect(dbname=config['DEFAULT']['db_name'],
@@ -62,6 +46,7 @@ def postgresql_table_to_csv(table_name):
         cursor.copy_expert(query, f_output)
     print("Saved information to csv: ", t_path_n_file)
 
+
 def upload_csv_to_gcp_storage(table_name):
     storage_client = storage.Client.from_service_account_json(
         config['DEFAULT']['gcp_key_path'])
@@ -76,6 +61,7 @@ def upload_csv_to_gcp_storage(table_name):
     blob.upload_from_filename(path)
 
     print("Uploaded csv to GCP Storage path: ", config[table_name]['cloud_storage_csv_path'])
+
 
 def storage_csv_to_bigquery(table_name):
     # Construct a BigQuery client object.
@@ -116,6 +102,7 @@ def blocks_to_bigquery(table_name):
     end = time.time()
     print("Data processed for ", table_name, " table in", (end - start), " seconds.")
 
+
 def main():
     start = time.time()
     blocks_to_bigquery("SHIFTS")
@@ -127,6 +114,7 @@ def main():
     #blocks_to_bigquery("LOCATIONS")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
+
 
 config = configparser.ConfigParser()
 config.read('config.ini')
