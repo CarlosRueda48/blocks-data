@@ -1,0 +1,357 @@
+[
+    {
+        "name": "voter_registration_scan_id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "upload_time",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voter_registration_scan_updated_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "visual_qc_county",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "is_registration_form",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "registration_form_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "registration_type",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "first_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "middle_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "last_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name_suffix",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_street_address_one",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_street_address_two",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_zipcode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mailing_street_address_one",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mailing_street_address_two",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mailing_city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "mailing_zipcode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "data_entry_county",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "gender",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "identification",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phone_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "email_address",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "eligible_voting_age",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "signature",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "extras",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "data_entry_time",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "data_entry_updated_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "party",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name_prefix",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ethnicity",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_address_latitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voting_address_longitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "distance_from_location",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "address_validated",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "shift_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "shift_type",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "shift_start",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "shift_end",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "field_start",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "field_end",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "visual_qc_completed_by_user_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phone_verification_completed_by_user_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "through_visual_qc",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "has_phone_number_visual_qc",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "qc_organization",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "voter_registration_scan_batches_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "packet_filename",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "qc_deadline",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "canvasser_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "canvasser_first_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "canvasser_last_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "turf_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "van_committee_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "organization_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collective_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "program_state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_id",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_street_address",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_zip",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_county",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_latitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "collection_location_longitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "phone_verified",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "bad_number",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+    }
+]
