@@ -103,7 +103,7 @@ def blocks_to_bigquery(table_name):
     print("Data processed for ", table_name, " table in", (end - start), " seconds.")
 
 
-def blocks_update(event, context):
+def blocks_update(event = None, context = None):
     global config 
     config = configparser.ConfigParser()
     config.read('config.ini')
@@ -117,3 +117,5 @@ def blocks_update(event, context):
     #blocks_to_bigquery("LOCATIONS")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
+
+blocks_update()
