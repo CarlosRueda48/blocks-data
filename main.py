@@ -7,6 +7,9 @@ import datetime
 import csv
 import time
 import configparser
+import os
+import stat
+from sys import platform
 
 
 def bigquery_schema_from_json(json_path):
@@ -40,7 +43,8 @@ def postgresql_table_to_csv(table_name):
 
     fd.close()
     t_path_n_file = config[table_name]['create_csv_path']
-    query = "copy  (" + sql_query + ") TO STDOUT WITH (FORMAT csv, DELIMITER ',', HEADER)"
+    query = "copy  (" + sql_query + \
+        ") TO STDOUT WITH (FORMAT csv, DELIMITER ',', HEADER)"
     with open(t_path_n_file, 'w', encoding='utf-8') as f_output:
 
         cursor.copy_expert(query, f_output)
@@ -60,7 +64,8 @@ def upload_csv_to_gcp_storage(table_name):
     blob.chunk_size = 1024*1024*10
     blob.upload_from_filename(path)
 
-    print("Uploaded csv to GCP Storage path: ", config[table_name]['cloud_storage_csv_path'])
+    print("Uploaded csv to GCP Storage path: ",
+          config[table_name]['cloud_storage_csv_path'])
 
 
 def storage_csv_to_bigquery(table_name):
@@ -100,13 +105,38 @@ def blocks_to_bigquery(table_name):
     upload_csv_to_gcp_storage(table_name)
     storage_csv_to_bigquery(table_name)
     end = time.time()
-    print("Data processed for ", table_name, " table in", (end - start), " seconds.")
+    print("Data processed for ", table_name,
+          " table in", (end - start), " seconds.")
 
 
-def blocks_update(event = None, context = None):
-    global config 
+def blocks_update(event=None, context=None):
+    global config
+
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    config.read("config.ini")
+
+    #Get SSL cert and key
+    storage_client = storage.Client.from_service_account_json(
+        config['DEFAULT']['gcp_key_path'])
+    bucket = storage_client.get_bucket(
+        config['DEFAULT']['cloud_storage_bucket_name'])
+    sslkey_path = ''
+    sslcert_path = ''
+    if(platform == 'linux'):
+        sslkey_path = config['GCP']['sslkey_path']
+        sslcert_path = config['GCP']['sslcert_path']
+    else:
+        sslkey_path = config['DEFAULT']['sslkey_path']
+        sslcert_path = config['DEFAULT']['sslcert_path']
+    blob = bucket.get_blob(config['DEFAULT']['gcp_sslkey_path'])
+    blob.download_to_filename(sslkey_path)
+    blob = bucket.get_blob(config['DEFAULT']['gcp_sslcert_path'])
+    blob.download_to_filename(sslcert_path)
+    
+    if(platform == 'linux'):
+        os.chmod(config['DEFAULT']['sslkey_path'], 0o600)
+        os.chmod(config['DEFAULT']['sslcert_path'], 0o600)
+
     start = time.time()
     blocks_to_bigquery("SHIFTS")
     blocks_to_bigquery("HARD_REPORT")
@@ -117,5 +147,6 @@ def blocks_update(event = None, context = None):
     blocks_to_bigquery("SCANS_QC_OVERVIEW")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
+
 
 blocks_update()
