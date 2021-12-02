@@ -3,12 +3,9 @@ import psycopg2.extras
 from google.cloud import bigquery
 from google.cloud import storage
 import json
-import datetime
-import csv
 import time
 import configparser
 import os
-import stat
 from sys import platform
 
 
@@ -52,11 +49,13 @@ def postgresql_table_to_csv(table_name):
 
 
 def upload_csv_to_gcp_storage(table_name):
+    #Get Cloud Storage bucket
     storage_client = storage.Client.from_service_account_json(
         config['DEFAULT']['gcp_key_path'])
     bucket = storage_client.get_bucket(
         config['DEFAULT']['cloud_storage_bucket_name'])
 
+    #Get path where csv will be saved to in bucket
     path = config[table_name]['create_csv_path']
 
     # Upload shifts csv to Google Cloud Storage
@@ -138,12 +137,12 @@ def blocks_update(event=None, context=None):
         os.chmod(config['DEFAULT']['sslcert_path'], 0o600)
 
     start = time.time()
-    blocks_to_bigquery("SHIFTS")
-    blocks_to_bigquery("HARD_REPORT")
-    blocks_to_bigquery("CANVASSERS")
-    blocks_to_bigquery("REGISTRATION_FORMS")
-    blocks_to_bigquery("TURFS")
-    blocks_to_bigquery("REPORT_TO_DATE")
+    #blocks_to_bigquery("SHIFTS")
+    #blocks_to_bigquery("HARD_REPORT")
+    #blocks_to_bigquery("CANVASSERS")
+    #blocks_to_bigquery("REGISTRATION_FORMS")
+    #blocks_to_bigquery("TURFS")
+    #blocks_to_bigquery("REPORT_TO_DATE")
     blocks_to_bigquery("SCANS_QC_OVERVIEW")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
