@@ -74,14 +74,12 @@ def storage_csv_to_bigquery(table_name):
 
     # Specify table id
     table_id = config[table_name]['table_id']
-    shifts_schema = bigquery_schema_from_json(
+    table_schema = bigquery_schema_from_json(
         config[table_name]['schema_json_path'])
 
-    #Truncate table
-    bqclient.query("TRUNCATE TABLE " + config[table_name]['table_id'])
-
     job_config = bigquery.LoadJobConfig(
-        schema=shifts_schema,
+        write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+        schema=table_schema,
         skip_leading_rows=1,
         source_format=bigquery.SourceFormat.CSV
     )
@@ -90,9 +88,10 @@ def storage_csv_to_bigquery(table_name):
     load_job = bqclient.load_table_from_uri(
         uri, table_id, job_config=job_config
     )  # Make an API request.
-
+    
+    print("Loading data into table: ", config[table_name]['table_id'])
     load_job.result()  # Waits for the job to complete.
-
+    
     destination_table = bqclient.get_table(table_id)  # Make an API request.
     print("Loaded {} rows into table: {}.".format(
         destination_table.num_rows, config[table_name]['table_id']))
@@ -138,12 +137,12 @@ def blocks_update(event=None, context=None):
 
     start = time.time()
     #blocks_to_bigquery("SHIFTS")
-    #blocks_to_bigquery("HARD_REPORT")
+    blocks_to_bigquery("HARD_REPORT")
     #blocks_to_bigquery("CANVASSERS")
     #blocks_to_bigquery("REGISTRATION_FORMS")
     #blocks_to_bigquery("TURFS")
     #blocks_to_bigquery("REPORT_TO_DATE")
-    blocks_to_bigquery("SCANS_QC_OVERVIEW")
+    #blocks_to_bigquery("SCANS_QC_OVERVIEW")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
 

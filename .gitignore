@@ -2,6 +2,10 @@
 /keys
 /Lib
 /Scripts
+/tmp
 config.ini
 pyvenv.cfg 
 *.csv
+*.zip
+*.crt 
+*.key
