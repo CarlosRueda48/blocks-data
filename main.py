@@ -98,6 +98,7 @@ def storage_csv_to_bigquery(table_name):
 
 
 def blocks_to_bigquery(table_name):
+    print("Processing data for: ", table_name)
     start = time.time()
     postgresql_table_to_csv(table_name)
     upload_csv_to_gcp_storage(table_name)
