@@ -119,14 +119,10 @@ def blocks_update(event=None, context=None):
         config['DEFAULT']['gcp_key_path'])
     bucket = storage_client.get_bucket(
         config['DEFAULT']['cloud_storage_bucket_name'])
-    sslkey_path = ''
-    sslcert_path = ''
-    if(platform == 'linux'):
-        sslkey_path = config['GCP']['sslkey_path']
-        sslcert_path = config['GCP']['sslcert_path']
-    else:
-        sslkey_path = config['DEFAULT']['sslkey_path']
-        sslcert_path = config['DEFAULT']['sslcert_path']
+
+    sslkey_path = config['DEFAULT']['sslkey_path']
+    sslcert_path = config['DEFAULT']['sslcert_path']
+    
     blob = bucket.get_blob(config['DEFAULT']['gcp_sslkey_path'])
     blob.download_to_filename(sslkey_path)
     blob = bucket.get_blob(config['DEFAULT']['gcp_sslcert_path'])
