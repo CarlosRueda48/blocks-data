@@ -120,15 +120,23 @@ def blocks_update(event=None, context=None):
     bucket = storage_client.get_bucket(
         config['DEFAULT']['cloud_storage_bucket_name'])
 
-    sslkey_path = config['DEFAULT']['sslkey_path']
-    sslcert_path = config['DEFAULT']['sslcert_path']
+    print("Obtaining SSL certificate and key")
+    if(platform == 'linux'):
+        print("Found platform: Linux, adjusting file path.")
+        sslkey_path = config['GCP']['sslkey_path']
+        sslcert_path = config['GCP']['sslcert_path']
+    else:
+        sslkey_path = config['DEFAULT']['sslkey_path']
+        sslcert_path = config['DEFAULT']['sslcert_path']
     
     blob = bucket.get_blob(config['DEFAULT']['gcp_sslkey_path'])
     blob.download_to_filename(sslkey_path)
     blob = bucket.get_blob(config['DEFAULT']['gcp_sslcert_path'])
     blob.download_to_filename(sslcert_path)
+    print("SSL information retrieved successfully.")
     
     if(platform == 'linux'):
+        print("Found platform: Linux, adjusting file permissions.")
         os.chmod(config['DEFAULT']['sslkey_path'], 0o600)
         os.chmod(config['DEFAULT']['sslcert_path'], 0o600)
 
