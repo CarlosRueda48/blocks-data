@@ -74,14 +74,12 @@ def storage_csv_to_bigquery(table_name):
 
     # Specify table id
     table_id = config[table_name]['table_id']
-    shifts_schema = bigquery_schema_from_json(
+    table_schema = bigquery_schema_from_json(
         config[table_name]['schema_json_path'])
 
-    #Truncate table
-    bqclient.query("TRUNCATE TABLE " + config[table_name]['table_id'])
-
     job_config = bigquery.LoadJobConfig(
-        schema=shifts_schema,
+        write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+        schema=table_schema,
         skip_leading_rows=1,
         source_format=bigquery.SourceFormat.CSV
     )
@@ -90,15 +88,17 @@ def storage_csv_to_bigquery(table_name):
     load_job = bqclient.load_table_from_uri(
         uri, table_id, job_config=job_config
     )  # Make an API request.
-
+    
+    print("Loading data into table: ", config[table_name]['table_id'])
     load_job.result()  # Waits for the job to complete.
-
+    
     destination_table = bqclient.get_table(table_id)  # Make an API request.
     print("Loaded {} rows into table: {}.".format(
         destination_table.num_rows, config[table_name]['table_id']))
 
 
 def blocks_to_bigquery(table_name):
+    print("Processing data for: ", table_name)
     start = time.time()
     postgresql_table_to_csv(table_name)
     upload_csv_to_gcp_storage(table_name)
@@ -119,31 +119,35 @@ def blocks_update(event=None, context=None):
         config['DEFAULT']['gcp_key_path'])
     bucket = storage_client.get_bucket(
         config['DEFAULT']['cloud_storage_bucket_name'])
-    sslkey_path = ''
-    sslcert_path = ''
+
+    print("Obtaining SSL certificate and key")
     if(platform == 'linux'):
+        print("Found platform: Linux, adjusting file path.")
         sslkey_path = config['GCP']['sslkey_path']
         sslcert_path = config['GCP']['sslcert_path']
     else:
         sslkey_path = config['DEFAULT']['sslkey_path']
         sslcert_path = config['DEFAULT']['sslcert_path']
+    
     blob = bucket.get_blob(config['DEFAULT']['gcp_sslkey_path'])
     blob.download_to_filename(sslkey_path)
     blob = bucket.get_blob(config['DEFAULT']['gcp_sslcert_path'])
     blob.download_to_filename(sslcert_path)
+    print("SSL information retrieved successfully.")
     
     if(platform == 'linux'):
+        print("Found platform: Linux, adjusting file permissions.")
         os.chmod(config['DEFAULT']['sslkey_path'], 0o600)
         os.chmod(config['DEFAULT']['sslcert_path'], 0o600)
 
     start = time.time()
     #blocks_to_bigquery("SHIFTS")
-    #blocks_to_bigquery("HARD_REPORT")
+    blocks_to_bigquery("HARD_REPORT")
     #blocks_to_bigquery("CANVASSERS")
     #blocks_to_bigquery("REGISTRATION_FORMS")
     #blocks_to_bigquery("TURFS")
     #blocks_to_bigquery("REPORT_TO_DATE")
-    blocks_to_bigquery("SCANS_QC_OVERVIEW")
+    #blocks_to_bigquery("SCANS_QC_OVERVIEW")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
 

@@ -25,5 +25,5 @@ from onearizona.shifts
 left join onearizona.locations on onearizona.shifts.location_id = onearizona.locations.id 
 left join onearizona.canvassers on onearizona.shifts.canvasser_id = onearizona.canvassers.id
 left join onearizona.turfs on onearizona.canvassers.turf_id = onearizona.turfs.id
-where extract(year from field_start) = 2021
-and extract(month from field_start) >= 09
+where extract(year from field_start) = 2022
+and extract(month from field_start) >= 01
