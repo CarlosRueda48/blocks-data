@@ -8,7 +8,7 @@ steps:
     - '-d'
     - '-r'
     - 'dags'
-    - 'gs://onearizona_dags/dags'
+    - 'gs://onearizona_dags/dags/'
 - name: gcr.io/cloud-builders/gsutil
   args:
     - '-m'
@@ -16,4 +16,4 @@ steps:
     - '-d'
     - '-r'
     - 'plugins'
-    - 'gs://${_GCS_BUCKET}/plugins'
+    - 'gs://onearizona_dags/plugins'
