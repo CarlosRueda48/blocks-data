@@ -16,4 +16,4 @@ steps:
     - '-d'
     - '-r'
     - 'plugins'
-    - 'gs://onearizona_dags/plugins'
+    - 'gs://onearizona_dags/plugins/'
