@@ -9,3 +9,4 @@ pyvenv.cfg
 *.zip
 *.crt 
 *.key
+/__pycache__
