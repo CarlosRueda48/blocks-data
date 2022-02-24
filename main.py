@@ -148,14 +148,14 @@ def blocks_update(event=None, context=None):
 
     start = time.time()
     
-    # blocks_to_bigquery("SHIFTS")
+    blocks_to_bigquery("SHIFTS")
     blocks_to_bigquery("HARD_REPORT")
-    # blocks_to_bigquery("CANVASSERS")
-    # blocks_to_bigquery("REGISTRATION_FORMS")
-    # blocks_to_bigquery("TURFS")
-    # blocks_to_bigquery("REPORT_TO_DATE")
-    # blocks_to_bigquery("SCANS_QC_OVERVIEW")
-    # blocks_to_bigquery("QUALITY_CONTROL_FLAGS")
+    blocks_to_bigquery("CANVASSERS")
+    blocks_to_bigquery("REGISTRATION_FORMS")
+    blocks_to_bigquery("TURFS")
+    blocks_to_bigquery("REPORT_TO_DATE")
+    blocks_to_bigquery("SCANS_QC_OVERVIEW")
+    blocks_to_bigquery("QUALITY_CONTROL_FLAGS")
     end = time.time()
     print("Total processing time: ", (end - start), " seconds.")
 
