@@ -120,6 +120,12 @@ def blocks_update(event=None, context=None):
     config = configparser.ConfigParser()
     config.read("config.ini")
 
+    #Create tmp folder if it doesn't exist
+    isExist = os.path.exists("tmp/")
+    if not isExist:
+        os.makedirs("tmp/")
+        print("/tmp directory created.")
+    
     #Get SSL cert and key
     storage_client = storage.Client.from_service_account_json(
         config['DEFAULT']['gcp_key_path'])
